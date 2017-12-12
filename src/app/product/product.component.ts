@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Product, ProductService} from "../shared/product.service";
 
 @Component({
   selector: 'app-product',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  constructor() { }
+  private products: Product[];
+  private keyword: string;
+  private imgUrl= 'http://placehold.it/320x150';
+
+  constructor(private productService: ProductService) { }
+
 
   ngOnInit() {
+    this.products = this.productService.getProducts();
   }
-
 }
+
+
+
