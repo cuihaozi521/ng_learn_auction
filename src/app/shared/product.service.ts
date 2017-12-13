@@ -43,7 +43,7 @@ export class Comment {
   constructor(
     public id: number,
     public productId: number,
-    public titmestamp: string,
+    public timestamp: string,
     public user: string,
     public rating: number,
     public content: string
