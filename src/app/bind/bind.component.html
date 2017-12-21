@@ -1,0 +1,36 @@
+
+<div class="well">
+  <h2 [class]="divClass">{{title}}</h2>
+  <h2 [ngClass]="{a:big,b:big,c:big}">{{title}}</h2>
+  <button class="btn" (click)="clickEvent($event)">btn</button>
+
+  <input type="text" value="Tom" (input)="doInputEvent($event)">
+
+  <img src="{{imgUrl}}" >
+
+  <input type="text" value="tom" (input)="doOninput($event)">
+
+
+  <table class="table-bordered">
+    <thead>
+    <tr>
+      <th>123</th>
+      <th>1234</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr [attr.center]="center">
+      <td [attr.colspan]="size">aaa</td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+<input type="text" [(ngModel)]="name" >
+{{name}}
+
+<h1>管道Demo</h1>
+<p>生日{{birthday | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+<p>圆周率{{pi | number: '2.1-3' }}</p>
+<p>圆周率{{size | multiple: '3' }}</p>
