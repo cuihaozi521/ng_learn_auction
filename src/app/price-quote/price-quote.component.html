@@ -1,0 +1,10 @@
+<div>
+  这里是报价组件
+</div>
+<h1>
+  股票代码是{{stockCode}}
+  价格是{{price | number:'2.2-2'}}
+</h1>
+<div>
+  <input type="button" value="立即购买" (click)="buyStock($event)">
+</div>

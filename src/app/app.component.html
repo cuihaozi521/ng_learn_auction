@@ -1,13 +1,24 @@
-<app-navbar></app-navbar>
-<div class="constainer">
-  <div class="row">
-    <div class="col-md-3">
-      <app-search></app-search>
-    </div>
-    <div class="col-md-9">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
-<app-footer></app-footer>
+<!--<app-navbar></app-navbar>-->
+<!--<div class="constainer">-->
+  <!--<div class="row">-->
+    <!--<div class="col-md-3">-->
+      <!--<app-search></app-search>-->
+    <!--</div>-->
+    <!--<div class="col-md-9">-->
+      <!--<router-outlet></router-outlet>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+<!--<app-footer></app-footer>-->
 <!--<app-bind></app-bind>-->
+<!--<div>-->
+   <!--我是父组件-->
+  <!--<div>-->
+    <!--<input type="text" [(ngModel)]="stock">-->
+  <!--</div>-->
+  <!--<app-order [stockCode]="stock" [amount]="100"></app-order>-->
+<!--</div>-->
+<!--<app-price-quote (buy)="priceQuoteHandler($event)"></app-price-quote>-->
+<!--<app-order [priceQuote]="priceQuote"></app-order>-->
+{{title}}
+<app-life [name]="title"></app-life>

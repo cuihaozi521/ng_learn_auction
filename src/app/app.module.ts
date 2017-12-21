@@ -18,6 +18,9 @@ import {ProductService} from "./shared/product.service";
 import { BindComponent } from './bind/bind.component';
 import { MultiplePipe } from './pipe/multiple.pipe';
 import { FilterPipe } from './pipe/filter.pipe';
+import { OrderComponent } from './order/order.component';
+import { PriceQuoteComponent } from './price-quote/price-quote.component';
+import { LifeComponent } from './life/life.component';
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
@@ -37,7 +40,10 @@ const routeConfig: Routes = [
     HomeComponent,
     BindComponent,
     MultiplePipe,
-    FilterPipe
+    FilterPipe,
+    OrderComponent,
+    PriceQuoteComponent,
+    LifeComponent
   ],
   imports: [
     BrowserModule,
