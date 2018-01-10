@@ -1,46 +1,20 @@
-import {
-  AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges
-} from '@angular/core';
-const logIndex: number = 1;
+///<reference path="../../../node_modules/@angular/core/src/metadata/lifecycle_hooks.d.ts"/>
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 @Component({
   selector: 'app-life',
   templateUrl: './life.component.html',
   styleUrls: ['./life.component.css']
 })
-export class LifeComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterViewInit, AfterViewChecked, AfterContentInit {
+export class LifeComponent implements OnInit, OnChanges {
   @Input()
-  name: string;
-  logIt(msg: string) {
-    console.dir(`#${logIndex++}${msg}`);
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    const name = changes['name'].currentValue;
-    this.logIt("name在constructor是" + name);
-  }
-
-  ngDoCheck(): void {
-    this.logIt("ngDoCheck");
-  }
-
-  ngAfterContentInit(): void {
-    this.logIt("ngAfterContentInit");
-  }
-
-  ngAfterViewInit(): void {
-    this.logIt("ngAfterViewInit");
-  }
-
-  ngAfterViewChecked(): void {
-    this.logIt("ngAfterViewChecked");
-
-  }
-
-  constructor() {
-    this.logIt("name在constructor是" + name);
-  }
-
+  greeting: string;
+  @Input()
+  user: {name: string};
+  messages = '初始化消息';
+  constructor() {}
   ngOnInit() {
-    this.logIt("ngOnInit");
   }
-
+  ngOnChanges( changes: SimpleChanges ): void {
+    console.dir( JSON.stringify(changes, null, 2));
+  }
 }

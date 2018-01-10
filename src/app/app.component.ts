@@ -11,7 +11,8 @@ export class AppComponent {
   stock = "";
   title = 'app';
   title2 = 'app2';
-
+  greeting = 'gellow';
+  user: {name: string} = {name: 'toms'};
   priceQuote: PriceQuote = new PriceQuote('', 0);
 
   priceQuoteHandler(event: PriceQuote) {
