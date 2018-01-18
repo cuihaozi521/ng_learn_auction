@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProductService {
   private products: Product[] = [
-    new Product(1, '第一个商品', 1.99, '这是描述信息!', 1, ['1', '123123asd']),
-    new Product(2, '第二个商品', 2.99, '这是描述信息!', 3, ['1', '123123asd']),
-    new Product(3, '第一个商品', 1.99, '这是描述信息!', 2, ['1', '123123asd']),
-    new Product(4, '第一个商品', 1.99, '这是描述信息!', 1, ['1', '123123asd']),
-    new Product(5, '第一个商品', 1.99, '这是描述信息!', 4, ['1', '123123asd']),
-    new Product(6, '第一个商品', 1.99, '这是描述信息!', 5, ['1', '123123asd'])
+    new Product(1, '第一个商品', 1.99, '这是描述信息!', 1, ['电子产品', '硬件设备']),
+    new Product(2, '第二个商品', 2.99, '这是描述信息!', 3, ['图书']),
+    new Product(3, '第一个商品', 1.99, '这是描述信息!', 2, ['硬件设备']),
+    new Product(4, '第一个商品', 1.99, '这是描述信息!', 1, ['电子产品', '硬件设备']),
+    new Product(5, '第一个商品', 1.99, '这是描述信息!', 4, ['硬件设备']),
+    new Product(6, '第一个商品', 1.99, '这是描述信息!', 5, ['电子产品'])
   ];
   private comments: Comment[] = [
     new Comment(1, 1, "2017-02-02", "张三", 3, "东西不错"),
@@ -17,6 +17,9 @@ export class ProductService {
     new Comment(4, 2, "2018-02-02", "张三3", 3, "东西不错")
   ];
   constructor() { }
+  getAllCategories(): string[] {
+    return ['电子产品', '图书', '硬件设备'];
+  }
   getProducts(): Product[] {
     return this.products;
   }

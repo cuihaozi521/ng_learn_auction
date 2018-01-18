@@ -21,6 +21,7 @@ import { FilterPipe } from './pipe/filter.pipe';
 import { OrderComponent } from './order/order.component';
 import { PriceQuoteComponent } from './price-quote/price-quote.component';
 import { LifeComponent } from './life/life.component';
+import { TemplComponent } from './templ/templ.component';
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
@@ -43,7 +44,8 @@ const routeConfig: Routes = [
     FilterPipe,
     OrderComponent,
     PriceQuoteComponent,
-    LifeComponent
+    LifeComponent,
+    TemplComponent
   ],
   imports: [
     BrowserModule,

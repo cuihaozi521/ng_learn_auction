@@ -1,0 +1,30 @@
+<form [formGroup]="formModel" (submit)="onSubmit()">
+  <div>用户名称：<input type="text" [class.hasError2]="formModel.get('username').invalid && formModel.get('username').touched" formControlName="username">
+    <div [hidden]="formModel.get('username').valid || formModel.get('username').untouched">
+      <span [hidden]="!formModel.hasError('required','username')">**</span>
+      <span [hidden]="!formModel.hasError('minlength','username')">**</span>
+    </div>
+  </div>
+  <div>手机号码：<input type="text" formControlName="mobile">
+    <div [hidden]="formModel.get('mobile').valid || formModel.get('mobile').pristine">
+      <span [hidden]="!formModel.hasError('mobile','mobile')">**</span>
+    </div>
+  </div>
+  <div [hidden]="!formModel.get('mobile').pending">
+    正在校验
+  </div>
+  <div formGroupName="passwordGroup">
+    <div>密码：<input type="password" formControlName="password">
+      <span [hidden]="!formModel.hasError('minlength',['passwordGroup','password'])">**</span>
+    </div>
+    <div>确认密码：<input type="password" formControlName="pconfirm">
+      <span [hidden]="!formModel.hasError('equal','passwordGroup')">{{formModel.getError('equal','passwordGroup')?.descxxx}}</span>
+    </div>
+  </div>
+  <div>
+    <button type="submit">保存</button>
+  </div>
+</form>
+<div>
+  {{formModel.status}}
+</div>
