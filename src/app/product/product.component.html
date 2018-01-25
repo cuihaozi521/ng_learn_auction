@@ -4,10 +4,11 @@
 
       <input class="form-control" placeholder="请输入商品名称"
              [formControl]="titleFilter">
+      <button (click)="sendMessageToService()">btn</button>
     </div>
   </div>
 </div>
-<div *ngFor="let product of products |filter :'title': keyword " class="col-md-4 col-sm-4">
+<div *ngFor="let product of products |filter :'title': keyword |async" class="col-md-4 col-sm-4">
   <div class="thumbnail">
     <img [src]="imgUrl">
     <div class="caption">

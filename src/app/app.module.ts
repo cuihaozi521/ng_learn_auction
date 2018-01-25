@@ -22,6 +22,7 @@ import { OrderComponent } from './order/order.component';
 import { PriceQuoteComponent } from './price-quote/price-quote.component';
 import { LifeComponent } from './life/life.component';
 import { TemplComponent } from './templ/templ.component';
+import {WebSocketService} from "./shared/web-socket.service";
 
 const routeConfig: Routes = [
   {path: '', component: HomeComponent},
@@ -54,7 +55,7 @@ const routeConfig: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(routeConfig)
   ],
-  providers: [ProductService],
+  providers: [ProductService, WebSocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
