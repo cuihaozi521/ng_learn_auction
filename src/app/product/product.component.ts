@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {FormControl} from "@angular/forms";
-import {Http, Headers} from "@angular/http";
 import "rxjs/Rx";
-import {WebSocketService} from "../shared/web-socket.service";
+import {Product, ProductService} from "../shared/product.service";
 
 @Component({
   selector: 'app-product',
@@ -11,34 +9,20 @@ import {WebSocketService} from "../shared/web-socket.service";
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products: Observable<any>;
-  private imgUrl= 'http://placehold.it/320x150';
-  private titleFilter: FormControl = new FormControl();
-  private keyword: string;
-  constructor(private http: Http,private wsService: WebSocketService) {
-    const headers = new Headers();
-    headers.append('Authorization', 'Basic 12345');
-    this.products = this.http.get('/api/products', {headers: headers} )
-        .map((res) => res.json());
-    this.titleFilter.valueChanges
-      .debounceTime(500)
-      .subscribe(
-        value => this.keyword = value
-      );
+  private products: Observable<Product[]>;
+  private imgUrl = 'http://placehold.it/320x150';
+  constructor(private productService: ProductService) {
   }
 
 
   ngOnInit() {
-    this.wsService.createObservableSocket("ws://localhost:8085")
-      .subscribe(
-        data => console.log(data),
-        err => console.log(err),
-        () => console.log('流已经结束')
-      );
+    this.products = this.productService.getProducts();
+
+    this.productService.searchEvent.subscribe(
+      params => this.products = this.productService.search(params)
+    );
   }
-  sendMessageToService() {
-    this.wsService.sendMessage("Hello from Messages");
-  }
+
 }
 
 
