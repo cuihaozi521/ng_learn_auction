@@ -6,7 +6,7 @@
       <h4 class="pull-right">{{product.price}}元</h4>
       <h4><a [routerLink]="['/product',product.id]">{{product.title}}</a></h4>
       <p>{{product.desc}}</p>
-      <p>{{product.categories[product_index]}}</p>
+      <p>{{product.category[product_index]}}</p>
     </div>
     <div>
       <app-stars [rating]="product.rating">星</app-stars>

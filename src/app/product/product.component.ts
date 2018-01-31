@@ -22,7 +22,6 @@ export class ProductComponent implements OnInit {
       params => this.products = this.productService.search(params)
     );
   }
-
 }
 
 
